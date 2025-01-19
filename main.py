@@ -126,6 +126,7 @@ def interpretation_experiment(maia,system,tools,debug=False):
     round_count = 0
     while True:
         round_count+=1 
+        print("Round count: ", round_count)
         maia_experiment = ask_agent(maia,tools.experiment_log) # ask maia for the next experiment given the results log to the experiment log (in the first round, the experiment log contains only the system prompt (maia api) and the user prompt (the query))
         tools.update_experiment_log(role='maia', type="text", type_content=str(maia_experiment)) # update the experiment log with maia's response (str casting is for exceptions)
         tools.generate_html() # generate the html file to visualize the experiment log
