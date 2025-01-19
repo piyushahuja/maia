@@ -815,9 +815,9 @@ class Tools:
         history = [{'role':'system', 'content':'you are an helpful assistant'}]
         user_contet = [{"type":"text", "text": instructions}]
         for ind,image in enumerate(image_list):
-            user_contet.append({"type": "image_url", "image_url": "data:image/jpeg;base64," + image})
+            user_contet.append({"type": "image_url", "image_url": { "url": "data:image/jpeg;base64," + image, "detail": "high"}})
         history.append({'role': 'user', 'content': user_contet})
-        description = ask_agent('gpt-4-vision-preview',history)
+        description = ask_agent('gpt-4o',history)
         if isinstance(description, Exception): return description
         return description
 
@@ -866,7 +866,7 @@ class Tools:
         instructions = "Do not describe the full image. Please describe ONLY the unmasked regions in this image (e.g. the regions that are not darkened). Be as concise as possible. Return your description in the following format: [highlighted regions]: <your concise description>"
         # time.sleep(60)
         for ind,image in enumerate(image_list):
-            history = [{'role':'system', 'content':'you are an helpful assistant'},{'role': 'user', 'content': [{"type":"text", "text": instructions}, {"type": "image_url", "image_url": "data:image/jpeg;base64," + image}]}]
+            history = [{'role':'system', 'content':'you are an helpful assistant'},{'role': 'user', 'content': [{"type":"text", "text": instructions}, {"type": "image_url", "image_url": { "url": "data:image/jpeg;base64," + image, "detail": "high"}}]}]
             description = ask_agent('gpt-4-vision-preview',history)
             if isinstance(description, Exception): return description_list
             description = description.split("[highlighted regions]:")[-1]

@@ -21,13 +21,13 @@ warnings.filterwarnings('ignore')
 sys.path.append('./synthetic-neurons-dataset/Grounded-Segment-Anything/')
 
 # Grounding DINO
-import GroundingDINO
-from GroundingDINO import groundingdino as groundingdino
-import GroundingDINO.groundingdino.datasets.transforms as T
-from GroundingDINO.groundingdino.models import build_model
-from GroundingDINO.groundingdino.util import box_ops
-from GroundingDINO.groundingdino.util.slconfig import SLConfig
-from GroundingDINO.groundingdino.util.utils import clean_state_dict, get_phrases_from_posmap
+
+import groundingdino as groundingdino
+from groundingdino.datasets.transforms as T
+from groundingdino.models import build_model
+from groundingdino.util import box_ops
+from groundingdino.util.slconfig import SLConfig
+from groundingdino.util.utils import clean_state_dict, get_phrases_from_posmap
 
 # segment anything
 from segment_anything import (
