@@ -23,7 +23,7 @@ sys.path.append('./synthetic-neurons-dataset/Grounded-Segment-Anything/')
 # Grounding DINO
 
 import groundingdino as groundingdino
-from groundingdino.datasets.transforms as T
+import groundingdino.datasets.transforms as T
 from groundingdino.models import build_model
 from groundingdino.util import box_ops
 from groundingdino.util.slconfig import SLConfig
