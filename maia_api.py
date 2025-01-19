@@ -867,7 +867,7 @@ class Tools:
         # time.sleep(60)
         for ind,image in enumerate(image_list):
             history = [{'role':'system', 'content':'you are an helpful assistant'},{'role': 'user', 'content': [{"type":"text", "text": instructions}, {"type": "image_url", "image_url": { "url": "data:image/jpeg;base64," + image, "detail": "high"}}]}]
-            description = ask_agent('gpt-4-vision-preview',history)
+            description = ask_agent('gpt-4o',history)
             if isinstance(description, Exception): return description_list
             description = description.split("[highlighted regions]:")[-1]
             description = " ".join([f'"{image_title[ind]}", highlighted regions:',description])
